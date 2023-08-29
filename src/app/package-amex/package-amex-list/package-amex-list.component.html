@@ -11,10 +11,10 @@
     <table class="table table-centered table-hover mb-0" id="datatable">
       <thead>
         <tr>
-          <th class="border-top-0" scope="col">Id</th>
+          <!-- <th class="border-top-0" scope="col">Id</th> -->
           <th class="border-top-0" scope="col">Number</th>
           <th class="border-top-0" scope="col">Customer</th>
-          <th class="border-top-0" scope="col">Courier Name</th>
+          <th class="border-top-0" scope="col">Courier name</th>
           <th class="border-top-0" scope="col">Origin</th>
           <th class="border-top-0" scope="col">Observations</th>
           <th class="border-top-0" scope="col">Safe</th>
@@ -30,7 +30,7 @@
       <tbody>
         <tr *ngFor="let item of packageAmexList" [class.active]="item === selectedPackageAmex">
 
-          <td>{{item.id}}</td>
+          <!-- <td>{{item.id}}</td> -->
           <td>{{item.number}}</td>
           <td>{{item.customer}}</td>
           <td>{{item.courier_name}}</td>

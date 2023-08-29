@@ -10,9 +10,9 @@
     <div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
     <form *ngIf="packageAmex" #editForm="ngForm" (ngSubmit)="save()">
 
-      <div class="form-group">
-        <label>Id</label>
-        {{packageAmex.id || 'n/a'}}
+      <div *ngIf="packageAmex.id" class="form-group">
+        <label class="m-2">ID</label>
+        {{packageAmex.id}}
       </div>
 
       <div class="form-group">
@@ -71,12 +71,12 @@
       </div>
 
       <div class="form-group">
-        <label for="volumetric_weight">volumetric_weight</label>
+        <label for="volumetric_weight">Volumetric weight</label>
         <input [(ngModel)]="packageAmex.volumetric_weight" id="volumetric_weight" name="volumetric_weight" class="form-control">
       </div>
 
       <div class="form-group">
-        <label for="received_by">received_by</label>
+        <label for="received_by">Received by</label>
         <input [(ngModel)]="packageAmex.received_by" id="received_by" name="received_by" class="form-control">
       </div>
 

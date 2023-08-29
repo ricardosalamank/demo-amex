@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PackageAmexFilter } from '../package-amex-filter';
 import { PackageAmexService } from '../package-amex.service';
 import { PackageAmex, PackageAmexClass } from '../package-amex';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-package-amex',
@@ -33,18 +34,25 @@ export class PackageAmexListComponent implements OnInit {
   }
 
   delete(packageAmex: PackageAmexClass): void {
-    if (confirm('Are you sure?')) {
-      this.packageAmexService.delete(packageAmex).subscribe({
-        next: () => {
-          this.feedback = {type: 'success', message: 'Delete was successful!'};
-          setTimeout(() => {
+    Swal.fire({
+      title: 'Are you sure?',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.packageAmexService.delete(packageAmex).subscribe({
+          next: () => {
+            Swal.fire('Delete!', '', 'success')
             this.search();
-          }, 1000);
-        },
-        error: err => {
-          this.feedback = {type: 'warning', message: 'Error deleting.'};
-        }
-      });
-    }
+          },
+          error: err => {
+            Swal.fire('Error trying delete', '', 'info')
+          }
+        });
+        
+      }
+    })
   }
 }
