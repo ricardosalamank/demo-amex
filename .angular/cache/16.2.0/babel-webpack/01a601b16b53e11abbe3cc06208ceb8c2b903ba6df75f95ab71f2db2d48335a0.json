@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class PackageAmex {}\nexport class ResponseBody {}\n/*\nexport class ResponseBodyEdit{\n  response_body!: PackageAmexClass;\n}*/\nexport class PackageAmexClass {}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
