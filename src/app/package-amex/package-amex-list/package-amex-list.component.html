@@ -1,0 +1,70 @@
+<ol class="breadcrumb float-right">
+  <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+  <li class="breadcrumb-item active">Package</li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">Package List</h2>
+  </div>
+  <div class="content">
+    <form #f="ngForm">
+
+      <div class="form-group">
+        <label for="customer">Customer:</label>
+        <input [(ngModel)]="filter.customer" id="customer" name="customer" class="form-control">
+      </div>
+
+      <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Search</button>
+      <a [routerLink]="['../packageAmexes', 'new' ]" class="btn btn-default">New</a>
+    </form>
+  </div>
+</div>
+<div class="card" *ngIf="packageAmexList.length > 0">
+  <div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+  <div class="table-responsive">
+    <table class="table table-centered table-hover mb-0" id="datatable">
+      <thead>
+        <tr>
+          <th class="border-top-0" scope="col">Id</th>
+          <th class="border-top-0" scope="col">Number</th>
+          <th class="border-top-0" scope="col">Customer</th>
+          <th class="border-top-0" scope="col">Courier Name</th>
+          <th class="border-top-0" scope="col">Origin</th>
+          <th class="border-top-0" scope="col">Observations</th>
+          <th class="border-top-0" scope="col">Safe</th>
+          <th class="border-top-0" scope="col">Country</th>
+          <th class="border-top-0" scope="col">Weight</th>
+          <th class="border-top-0" scope="col">price</th>
+          <th class="border-top-0" scope="col">width</th>
+          <th class="border-top-0" scope="col">length</th>
+          <th class="border-top-0" scope="col">volumetric weight</th>
+          <th class="border-top-0" scope="col">received_by</th>
+          <th class="border-top-0" scope="col" style="width:120px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of packageAmexList" [class.active]="item === selectedPackageAmex">
+
+          <td>{{item.id}}</td>
+          <td>{{item.number}}</td>
+          <td>{{item.customer}}</td>
+          <td>{{item.courier_name}}</td>
+          <td>{{item.origin}}</td>
+          <td>{{item.observations}}</td>
+          <td>{{item.safe}}</td>
+          <td>{{item.country}}</td>
+          <td>{{item.weight}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.width}}</td>
+          <td>{{item.length}}</td>
+          <td>{{item.volumetric_weight}}</td>
+          <td>{{item.received_by}}</td>
+          <td style="white-space: nowrap">
+            <a [routerLink]="['../packageAmexes', item.id ]" class="btn btn-secondary">Edit</a>&nbsp;
+            <button (click)="delete(item)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

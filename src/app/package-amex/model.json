@@ -1,0 +1,91 @@
+{
+  "title": "Package",
+  "entity": "package-amex",
+  "api": {
+    "url": "https://c7df-130-250-229-20.ngrok.io/api/package"
+  },
+  "filter": [
+    "customer"
+  ],
+  "fields": [
+    {
+      "name": "id",
+      "label": "Id",
+      "isId": true,
+      "readonly": true,
+      "type": "number"
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "control": "number",
+      "label": "Number"
+    },
+    {
+      "name": "customer",
+      "type": "string",
+      "label": "Customer"
+    },
+    {
+      "name": "courier_name",
+      "type": "string",
+      "label": "Courier Name"
+    },
+    {
+      "name": "origin",
+      "type": "string",
+      "label": "Origin"
+    },
+    {
+      "name": "observations",
+      "type": "string",
+      "label": "Observations"
+    },
+    {
+      "name": "safe",
+      "type": "string",
+      "control": "number",
+      "label": "Safe"
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "label": "Country"
+    },
+    {
+      "name": "weight",
+      "type": "string",
+      "control": "number",
+      "label": "Weight"
+    },
+    {
+      "name": "price",
+      "type": "string",
+      "control": "number",
+      "label": "price"
+    },
+    {
+      "name": "width",
+      "type": "string",
+      "control": "number",
+      "label": "width"
+    },
+    {
+      "name": "length",
+      "type": "string",
+      "control": "number",
+      "label": "length"
+    },
+    {
+      "name": "volumetric_weight",
+      "type": "string",
+      "control": "number",
+      "label": "volumetric_weight"
+    },
+    {
+      "name": "received_by",
+      "type": "string",
+      "label": "received_by"
+    }
+  ]
+}
