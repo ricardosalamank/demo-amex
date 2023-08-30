@@ -10,14 +10,14 @@
     <div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
     <form *ngIf="packageAmex" #editForm="ngForm" (ngSubmit)="save()">
 
-      <div class="form-group">
-        <label>Id</label>
-        {{packageAmex.id || 'n/a'}}
+      <div *ngIf="packageAmex.id" class="form-group">
+        <label class="m-2">ID</label>
+        {{packageAmex.id}}
       </div>
 
       <div class="form-group">
         <label for="number">Number</label>
-        <input [(ngModel)]="packageAmex.number" id="number" name="number" class="form-control">
+        <input [(ngModel)]="packageAmex.number" type="number" id="number" name="number" class="form-control">
       </div>
 
       <div class="form-group">
@@ -42,7 +42,7 @@
 
       <div class="form-group">
         <label for="safe">Safe</label>
-        <input [(ngModel)]="packageAmex.safe" id="safe" name="safe" class="form-control">
+        <input [(ngModel)]="packageAmex.safe" type="number" id="safe" name="safe" class="form-control">
       </div>
 
       <div class="form-group">
@@ -52,35 +52,35 @@
 
       <div class="form-group">
         <label for="weight">Weight</label>
-        <input [(ngModel)]="packageAmex.weight" id="weight" name="weight" class="form-control">
+        <input [(ngModel)]="packageAmex.weight" type="number" id="weight" name="weight" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="price">price</label>
-        <input [(ngModel)]="packageAmex.price" id="price" name="price" class="form-control">
+        <input [(ngModel)]="packageAmex.price" type="number" id="price" name="price" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="width">width</label>
-        <input [(ngModel)]="packageAmex.width" id="width" name="width" class="form-control">
+        <input [(ngModel)]="packageAmex.width" type="number" id="width" name="width" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="length">length</label>
-        <input [(ngModel)]="packageAmex.length" id="length" name="length" class="form-control">
+        <input [(ngModel)]="packageAmex.length" type="number" id="length" name="length" class="form-control">
       </div>
 
       <div class="form-group">
-        <label for="volumetric_weight">volumetric_weight</label>
-        <input [(ngModel)]="packageAmex.volumetric_weight" id="volumetric_weight" name="volumetric_weight" class="form-control">
+        <label for="volumetric_weight">Volumetric weight</label>
+        <input [(ngModel)]="packageAmex.volumetric_weight" type="number" id="volumetric_weight" name="volumetric_weight" class="form-control">
       </div>
 
       <div class="form-group">
-        <label for="received_by">received_by</label>
+        <label for="received_by">Received by</label>
         <input [(ngModel)]="packageAmex.received_by" id="received_by" name="received_by" class="form-control">
       </div>
 
-      <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
+      <button type="submit" class="m-2 btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
       <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
     </form>
   </div>
